@@ -1,5 +1,6 @@
 const glob = require('glob')
 const path = require('path')
+const webpack = require('webpack')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -119,6 +120,8 @@ module.exports = {
     }),
     // 删除dist目录
     new CleanWebpackPlugin({}),
+    // 开启Scope Hoisting
+    new webpack.optimize.ModuleConcatenationPlugin()
     // // 公众资源包
     // new HtmlWebpackExternalsPlugin({
     //   externals: [

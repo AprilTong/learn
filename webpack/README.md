@@ -60,3 +60,15 @@ ZipWebpackPlugin	将打包出的资源生成一个zip包
 修改html-webpack-plugin，设置压缩参数
 autoprefixer自动补齐css3前缀
 Px2rem-loader 在移动端将px转换成rem
+#### tree shaking(摇树优化)
+一个文件可能有多个方法，只要其中某个方法使用用到，整个文件都会打包到bundle里面去，tree shaking就只把用到的方法进行打包，没用到的方法会在uglify阶段被擦除掉
+使用：webpack默认支持，在.babelrc里设置modules: false
+    .production mode的情况下默认开启
+要求：必须是es6的语法
+#### Scope Hoisting
+未开启Scope Hoisting打包大量函数闭包包裹代码，导致体积增大（模块越多越明显）
+运行代码时创建的函数作用域变多，内存开销变大
+原理：将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突
+对比：通过 Scope Hoisting 可以减少函数声明代码和内存开销
+.production mode的情况下默认开启
+要求：必须是es6的语法
