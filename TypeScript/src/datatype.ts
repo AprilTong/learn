@@ -12,7 +12,7 @@ let tuple: [number, string] = [0, '1']
 tuple.push(3)
 console.log('tuple', tuple)
 //函数
-let add = (x: number, y: number) => x + y
+// let add = (x: number, y: number) => x + y
 let compute: (x: number, y: number) => number
 compute = (a, b ) => a + b 
 

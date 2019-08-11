@@ -49,3 +49,46 @@ let e2 = E.b
 // e1 === e2
 let e3: E.a = 1
 e1 === e3
+
+// 对象类型接口
+// 类型断言 用as 或者<>的形式
+interface List {
+  // 只读属性
+  readonly id: number,
+  name: string,
+  // [x: string]: any;
+  // ? 表示可选属性
+  age? : number
+}
+interface Result {
+  data: List[]
+}
+
+function render(result: Result) {
+  result.data.forEach( (value) => {
+    console.log(value.id, value.name);
+    // value.id++
+    if (value.age) {
+      console.log(value.age);
+    }
+  })
+}
+let result = {
+  data: [
+    {id: 1, name: 'A', sex: 'male'},
+    {id: 2, name: 'B', age: 10}
+  ]
+}
+render(result)
+
+interface StringArray {
+  [index: number]: string
+}
+// 定义一个字符串数组
+let chars: StringArray = ['a', 'b']
+
+interface Names {
+  [x: string]: string,
+  // y: number,
+  [x: number]: string
+}
