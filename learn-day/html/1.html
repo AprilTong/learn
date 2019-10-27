@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+    /* 浮动*/
+    /* .box {
+      width: 100%;
+      height: 100vh;
+    }
+    .one {
+      width: 100px;
+      height: 100%;
+      background: red;
+      float: left;
+    }
+    .three {
+      width: 100px;
+      height: 100%;
+      background: hotpink;
+      float: right;
+    }
+    .two {
+      background: green;
+      height: 100%;
+      width: calc(100% - 200px);
+      margin: 0 100px;
+    } */
+    /* 定位 */
+    /* .one {
+      width: 100px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: red;
+    }
+    .three {
+      width: 100px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: hotpink;
+    }
+    .two {
+      background: green;
+      height: 100%;
+      position: absolute;
+      left: 100px;
+      right: 100px;
+    } */
+    /* flex 布局 */
+    .box {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+    }
+    .one {
+      background: red;
+      /* width: 100px; */
+      flex-basis: 100px;
+      height: 100%;
+    }
+    .two {
+      background: green;
+      height: 100%;
+      flex: 1;
+      flex-basis: calc(100% - 200px);
+      flex-grow: 1;
+    }
+    .three {
+      background: hotpink;
+      flex-basis: 100px;
+      /* width: 100px; */
+      height: 100%;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <!-- 定位和flex布局-->
+      <div class="one"></div>
+      <div class="two"></div>
+      <div class="three"></div>
+      <!-- 浮动布局-->
+      <div class="one"></div>
+      <div class="three"></div>
+      <div class="two"></div>
+    </div>
+  </body>
+</html>
