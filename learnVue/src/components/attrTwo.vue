@@ -1,37 +1,36 @@
 <template functional>
   <div>
-    <p  :style = "{ color: injections.theme.color }">我是第二个子组件 {{ two }}</p>
-    <p>第二个子组件的$attr {{ $attrs }} </p>
-    <attrThree v-bind="$attrs" @sendMsg="sendMsg"></attrThree>
+    <!-- <p  :style = "{ color: injections.theme.color }">我是第二个子组件 {{ two }}</p> -->
+    <p>我是第二个子组件 {{ two }}</p>
+    <p>第二个子组件的 {{ $attrs }} </p>
+    <!-- <attrThree v-bind="$attrs"></attrThree> -->
   </div>
 </template>
 <script>
 import attrThree from '../components/attrThree'
 
 export default {
-  inject: {
-    theme: {
-      default: () => ({})
-    }
-  },
+  // inject: {
+  //   theme: {
+  //     default: () => ({})
+  //   }
+  // },
   props: {
     two: {
       type: String
     }
   },
   components: { attrThree },
-  inheritAttrs: false,
-  // created() {
-  //   console.log(this.$attrs)
-  //   console.log('2', this.$listeners)
-  // },
+  inheritAttrs: true,
   mounted() {
-    console.log('inject2', this.injections)
+    console.log('23', this.two)
+    console.log('第2个', this.$attrs)
+    console.log('2', this.$listeners)
   },
   methods: {
-    sendMsg(msg) {
-      console.log('msg:', msg)
-    }
+    // sendMsg(msg) {
+    //   console.log('msg:', msg)
+    // }
   }
 }
 </script>

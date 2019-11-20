@@ -1,8 +1,3 @@
-<div id="home">   
-  <my-a></my-a>  
-  <my-b></my-b>   
-  <my-c></my-c>
-</div>
 <template id="a">
   <div>
     <h3>
