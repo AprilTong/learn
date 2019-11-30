@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>水平垂直居中</title>
+  </head>
+  <body>
+    <style>
+      /* 绝对定位+margin：auto */
+      .parent {
+        width: 100%;
+        height: 300px;
+        background: green;
+        position: relative;
+      }
+      .child {
+        background: hotpink;
+        width: 200px;
+        height: 120px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      /* 绝对定位+margin：反向偏移 */
+      /* 绝对定位+margin：transform */
+      /* table布局*/
+      .parent {
+        width: 500px;
+        height: 300px;
+        background: hotpink;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .child {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      /* grid布局*/
+      .parent {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        width: 500px;
+        height: 300px;
+        background: hotpink;
+      }
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      /* flex布局*/
+      .parent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </body>
+</html>
