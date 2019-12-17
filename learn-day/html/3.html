@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- js会阻塞dom的解析while条件一直为真所以两个div都不会显示出来-->
+    <div>第一个div</div>
+    <script>
+      while (1) {}
+    </script>
+    <div>第二个div</div>
+  </body>
+</html>

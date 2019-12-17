@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="t3">
+      document
+      <div class="t2">
+        html
+        <div class="t1">
+          body
+          <div class="t0">div</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var $t0 = document.getElementsByClassName('t0')[0]
+      var $t1 = document.getElementsByClassName('t1')[0]
+      var $t2 = document.getElementsByClassName('t2')[0]
+      var $t3 = document.getElementsByClassName('t3')[0]
+
+      $t0.addEventListener(
+        'click',
+        function() {
+          alert('click div')
+        },
+        false
+      )
+
+      $t1.addEventListener(
+        'click',
+        function() {
+          alert('click body')
+        },
+        false
+      )
+
+      $t2.addEventListener(
+        'click',
+        function() {
+          alert('click html')
+        },
+        true
+      )
+
+      $t3.addEventListener(
+        'click',
+        function() {
+          alert('click document')
+        },
+        true
+      )
+    </script>
+
+    <!-- <div id="s1">
+      s1
+      <div id="s2">s2</div>
+    </div>
+    <script>
+      let s1 = document.getElementById('s1')
+      let s2 = document.getElementById('s2')
+      // addEventListener 第三个参数true在捕获阶段执行
+
+      s1.addEventListener(
+        'click',
+        function(e) {
+          console.log('s1 冒泡事件')
+        },
+        false
+      )
+      s1.addEventListener(
+        'click',
+        function(e) {
+          console.log('s1 捕获事件')
+        },
+        true
+      )
+      s2.addEventListener(
+        'click',
+        function(e) {
+          //阻止当前事件的进一步传播
+          e.stopPropagation()
+          console.log('s2 冒泡事件')
+        },
+        false
+      )
+      s2.addEventListener(
+        'click',
+        function(e) {
+          console.log('s2 捕获事件')
+        },
+        true
+      )
+    </script> -->
+  </body>
+</html>

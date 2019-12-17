@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue的观察者模式</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>数据的双向绑定</h3>
+      <div class="cell">
+        <div class="text" v-text="myText"></div>
+        <input class="input" type="text" v-model="myText" />
+      </div>
+    </div>
+    <script src="./watch.js"></script>
+    <script src="./myvue.js"></script>
+    <script>
+      //创建vue实例
+      const app = new myVue({
+        el: '#app',
+        data: {
+          myText: 'hello world'
+        }
+      })
+    </script>
+  </body>
+</html>
