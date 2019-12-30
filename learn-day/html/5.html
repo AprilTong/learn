@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>定位</title>
+  </head>
+  <body>
+    <style>
+      .parent {
+        width: 200px;
+        height: 500px;
+        background: green;
+        overflow: auto;
+      }
+      .child {
+        width: 100px;
+        height: 300px;
+        background: red;
+        /* 相对它的最近滚动祖先（overflow 是 hidden, scroll, auto, 或 overlay时）进行定位*/
+        position: sticky;
+      }
+
+      .triangle {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-left: 50px solid transparent;
+        border-bottom: 50px solid green;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+      }
+      .two {
+        width: 200px;
+        height: 200px;
+        border: 1px solid green;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        margin-top: 50px;
+      }
+    </style>
+    <!-- <div class="parent">
+    <div class="child">
+      我是子元素
+    </div>
+  </div> -->
+
+    <div class="triangle"></div>
+    <div class="box"></div>
+    <div class="two"></div>
+    <script>
+      let box = document.getElementsByClassName('box')[0]
+      console.log('box', box)
+      console.log(
+        'width',
+        window.getComputedStyle(box).getPropertyValue('width')
+      )
+      console.log(
+        'height',
+        window.getComputedStyle(box).getPropertyValue('height')
+      )
+    </script>
+  </body>
+</html>
