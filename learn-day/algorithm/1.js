@@ -52,15 +52,13 @@ function twofor(arr, target) {
 }
 // 方法二： 利用对象，Object是哈希表结构，哈希表查找的时间复杂度是O(1),array的时间复杂度是O(n)，提升查找速度
 function findTargetIndex(arr, target) {
-  console.time('bb')
   let result = {}
   for (let i = 0; i < arr.length; i++) {
     let diff = target - arr[i]
-    result[arr[i]] = i
     if (diff in result) {
-      console.timeEnd('bb')
-      return [i, result[diff]]
+      return [result[diff], i]
     }
+    result[arr[i]] = i
   }
 }
 
@@ -365,9 +363,7 @@ b.next() // { value:6, done:false }
 b.next(12) // { value:8, done:false }
 b.next(13) // { value:42, done:true }
 
-var arr = [1,2,3]
+var arr = [1, 2, 3]
 for (const i = 0; i < arr.length; i++) {
   console.log(arr[i])
 }
-
-
