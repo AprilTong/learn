@@ -6,31 +6,31 @@ FormData 提供了表单数据的键值对，经过其的数据可以通过 XMLH
   FormData() 创建一个新的 FormData 对象
 
 - 方法
-  FormData.append()
+1. FormData.append()
   向 FormData 中添加新的属性值，如果属性存在，也不会被覆盖，会新增，属性不存在则会新增一个属性值；
 
-FormData.delete()
+2. FormData.delete()
 从 FormData 对象中删除一个键值对；
 
-FormData.entries()
+3. FormData.entries()
 返回一个包含所有键值对的 iterator 对象
 
-FormData.get()
+4. FormData.get()
 返回给定 key 关联的第一个值
 
-FormData.getAll()
+5. FormData.getAll()
 返回给定 key 关联的所有值
 
-FormData.has()
+6. FormData.has()
 判断 FormData 对象是否含有某些键，返回一个布尔值
 
-FormData.keys()
+7. FormData.keys()
 返回 FormData 对像所有键的 iterator 对象
 
-FormData.values()
+8. FormData.values()
 返回 FormData 对像所有值的 iterator 对象
 
-FormData.set()
+9. FormData.set()
 设置 FormData 对象的属性值，如果属性本来存在则会覆盖
 
 ```
