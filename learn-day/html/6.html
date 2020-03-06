@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .heart {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: pink;
+        height: 50px;
+        width: 50px;
+        transform: rotate(-45deg);
+      }
+      .heart:after {
+        background-color: pink;
+        content: '';
+        border-radius: 50%;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 0px;
+        left: 25px;
+      }
+      .heart:before {
+        content: '';
+        background-color: pink;
+        border-radius: 50%;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: -25px;
+        left: 0px;
+      }
+      /* 
+        1. animation-duration 执行动画的时间
+        2. animation-name 动画名称
+        2. animation-iteration-countz: 控制动画循环的次数【infinite】
+        3. animation-fill-mode 设置动画在执行之前和之后如何将样式应用于其目标
+        4. aniamation-timing-function 规定动画的速度曲线
+      */
+    </style>
+    <div class="heart"></div>
+  </body>
+</html>

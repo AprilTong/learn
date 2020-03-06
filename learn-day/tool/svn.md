@@ -142,3 +142,30 @@ svn add * --no-ignore
 svn commit -m init
 
 ```
+
+查看忽略文件
+
+```
+svn propget svn:ignore
+```
+
+svn 切换仓库
+
+```
+svn switch --relocate (Old Repository Root) (New Repository Root)
+```
+
+12. 提交失败【svn: E155010】
+
+```
+Commit failed with error
+0 files committed, 1948 files failed to commit
+svn: E155010: Commit failed (details follow):
+svn: E155010: '提交的文件' is scheduled for addition, but is missing
+```
+原因：这个文件之前加到了svn，但还没提交，就被删除
+解决：
+
+```
+svn revert 出现问题的文件 --depth infinity
+```
