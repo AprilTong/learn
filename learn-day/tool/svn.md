@@ -163,9 +163,23 @@ Commit failed with error
 svn: E155010: Commit failed (details follow):
 svn: E155010: '提交的文件' is scheduled for addition, but is missing
 ```
-原因：这个文件之前加到了svn，但还没提交，就被删除
+
+原因：这个文件之前加到了 svn，但还没提交，就被删除
 解决：
 
 ```
 svn revert 出现问题的文件 --depth infinity
+```
+
+13. 提交失败
+
+```
+svn: E155015:
+```
+
+原因：出现冲突
+解决：查看警告信息提示冲突的文件
+
+```
+svn resolved 【文件名】
 ```
