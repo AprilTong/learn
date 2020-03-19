@@ -28,10 +28,97 @@ console.log(Dog.prototype)
 
 // 类的继承
 class Husky extends Dog {
-    constructor(name: string, public color: string) {
-        super(name)
-        this.color = color
-        this.pro()
-    }
+    // constructor(name: string, public color: string) {
+    //     super(name)
+    //     this.color = color
+    //     this.pro()
+    // }
     // color: string
 }
+let husky = new Husky('name')
+console.log('Husky', husky)
+// 类静态方法和实例部分的区别
+// interface ClockConstructor {
+//     new(hour: number, minute: number): ClockInterface;
+// }
+// interface ClockInterface {
+//     tick();
+// }
+
+// function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface {
+//     return new ctor(hour, minute);
+// }
+
+// class DigitalClock implements ClockInterface {
+//     constructor(h: number, m: number) { }
+//     tick() {
+//         console.log("beep beep");
+//     }
+// }
+// class AnalogClock implements ClockInterface {
+//     constructor(h: number, m: number) { }
+//     tick() {
+//         console.log("tick tock");
+//     }
+// }
+
+// let digital = createClock(DigitalClock, 12, 17);
+// let analog = createClock(AnalogClock, 7, 32);
+// console.log('digital', digital)
+// console.log('analog', analog)
+
+// 继承接口
+interface Shape {
+    color: String
+}
+interface Square extends Shape {
+    sideLength: number
+}
+
+let square = <Square>{}
+square.color = "blue"
+square.sideLength = 10
+
+console.log('square', square)
+
+// 一个接口可以继承多个接口
+
+
+// 混合类型
+// 可以同时作为函数和对象使用
+interface Counter {
+    (start: number): string
+    interval: number
+    reset(): void
+}
+
+function getCounter(): Counter {
+    let counter = <Counter>function (start: number) { };
+    counter.interval = 123
+    counter.reset = function () { }
+    console.log('counter', counter)
+    return counter
+}
+
+let c = getCounter()
+c(10)
+c.reset()
+c.interval = 5.0
+
+console.log('c', c)
+
+
+// 接口继承类
+class Control {
+    private state: any
+}
+// 定义了一个接口继承类，也会继承类的private和protect成员
+interface SelectControl extends Control {
+    select(): void // void类型像是与any类型相反，它表示没有任何类型。 当一个函数没有返回值时，你通常会见到其返回值类型是 void：
+}
+//错误 无state属性
+// class Img implements SelectControl {
+//     select() { }
+// }
+
+
