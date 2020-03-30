@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>路由学习</title>
+  </head>
+  <body>
+    <ul>
+      <!-- 定义路由 hash模式-->
+      <h3>Hash Router</h3>
+      <li><a href="#/home">home</a></li>
+      <li><a href="#/about">about</a></li>
+    </ul>
+    <!-- 渲染路由对应的UI -->
+    <div id="routeView"></div>
+    <script>
+      window.addEventListener("DOMContentLoaded", onLoad);
+      window.addEventListener("hashchange", onHashChange);
+      var routerView = null;
+      function onLoad() {
+        routerView = document.querySelector("#routeView");
+        onHashChange();
+      }
+      function onHashChange() {
+        switch (location.hash) {
+          case "#/home":
+            routerView.innerHTML = "Home";
+            return;
+          case "#/about":
+            routerView.innerHTML = "About";
+            return;
+          default:
+            return;
+        }
+      }
+    </script>
+  </body>
+</html>
