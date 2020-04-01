@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文字下沉</title>
+  </head>
+  <body>
+    <a href="javascript:" class="btn verticle-mode">测</a>
+    <style>
+      .btn {
+        display: block;
+        color: #a78252;
+        background-color: #ddc390;
+        width: 85px;
+        height: 85px;
+        line-height: 85px;
+        border: 6px solid #ddc390;
+        box-shadow: inset 0 0 0 1px #d6b681, 0 1px, 0 2px, 0 3px, 0 4px;
+        text-align: center;
+        transition: border-color 0.25s, background-color 0.25s;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 42px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .verticle-mode {
+        writing-mode: vertical-rl;
+      }
+      .btn:active {
+        /* 定义一个块元素首行文本内容之前的缩进量 */
+        text-indent: 2px;
+      }
+    </style>
+  </body>
+</html>
