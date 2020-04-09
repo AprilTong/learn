@@ -24,4 +24,8 @@ function intersection2(arr1, arr2) {
 /*
     计算多个数组的交集
  */
-function allIntersection(...arr) {}
+function allIntersection(...arr) {
+  return arr.reduce((prev, curr) => {
+    return [...new Set(prev.filter((el) => curr.includes(el)))];
+  });
+}
