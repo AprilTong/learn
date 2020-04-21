@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>元素居右显示</title>
+  </head>
+  <body>
+    <div class="parent1">
+      <div class="child1">
+        子级div
+      </div>
+    </div>
+    <style>
+      .parent1 {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+      }
+      .child1 {
+        width: 100px;
+        height: 80px;
+        border: 1px solid red;
+        /* 只是让文本内容居右边显示*/
+        text-align: right;
+        /* 方法一*/
+        /* margin-left: auto; */
+        /* 不建议使用，会脱离文档流
+        float: right; */
+        /* 不建议使用，会脱离文档流, 需要给父元素设置相对定位
+        position: absolute;
+        top: 0;
+        right: 0;
+         */
+      }
+    </style>
+  </body>
+</html>
