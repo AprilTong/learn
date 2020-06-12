@@ -107,3 +107,6 @@ which svn
     brew services start jenkins
 -   man
 -   pbcopy
+
+3. 安装稳定版本
+   npm install html-webpack-plugin@next

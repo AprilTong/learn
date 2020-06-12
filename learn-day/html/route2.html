@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>路由原理</title>
-  </head>
-  <body>
-    <!-- history模式 -->
-    <h3>history模式 Router</h3>
-    <ul>
-      <li><a href="/home">home</a></li>
-      <li><a href="/about">about</a></li>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>路由原理</title>
+    </head>
+    <body>
+        <!-- history模式 -->
+        <h3>history模式 Router</h3>
+        <ul>
+            <li><a href="/home">home</a></li>
+            <li><a href="/about">about</a></li>
 
-      <div id="routeView"></div>
-    </ul>
-    <script>
-      // 该模式不能跨域，出现跨域，会提示
-      // Uncaught DOMException: Failed to execute 'pushState' on 'History': A history state object with URL
-      // 利用sudo php -S localhost:3000开启一个服务进行测试
-      window.addEventListener("DOMContentLoaded", onLoad);
-      window.addEventListener("propstate", onPropState);
-      var routerView = null;
-      function onLoad() {
-        routerView = document.querySelector("#routeView");
-        onPropState();
+            <div id="routeView"></div>
+        </ul>
+        <script>
+            // 该模式不能跨域，出现跨域，会提示
+            // Uncaught DOMException: Failed to execute 'pushState' on 'History': A history state object with URL
+            // 利用sudo php -S localhost:3000开启一个服务进行测试
+            window.addEventListener('DOMContentLoaded', onLoad);
+            window.addEventListener('propstate', onPropState);
+            var routerView = null;
+            function onLoad() {
+                routerView = document.querySelector('#routeView');
+                onPropState();
 
-        // 拦截a标签点击默认行为，点击时使用pushState修改URL并手动更新UI，从而实现点击链接更新UI
-        var linkList = document.querySelectorAll("a[href]");
-        linkList.forEach(el => {
-          el.addEventListener("click", function(e) {
-            e.preventDefault();
-            history.pushState(null, "", el.getAttribute("href"));
-            onPropState();
-          });
-        });
-      }
+                // 拦截a标签点击默认行为，点击时使用pushState修改URL并手动更新UI，从而实现点击链接更新UI
+                var linkList = document.querySelectorAll('a[href]');
+                linkList.forEach((el) => {
+                    el.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        history.pushState(null, '', el.getAttribute('href'));
+                        onPropState();
+                    });
+                });
+            }
 
-      // 路由变化时。根据路由渲染对应UI
-      function onPropState() {
-        switch (location.pathname) {
-          case "/home":
-            routerView.innerHTML = "Home";
-            return;
-          case "/about":
-            routerView.innerHTML = "About";
-            return;
-          default:
-            return;
-        }
-      }
-    </script>
-  </body>
+            // 路由变化时。根据路由渲染对应UI
+            function onPropState() {
+                switch (location.pathname) {
+                    case '/home':
+                        routerView.innerHTML = 'Home';
+                        return;
+                    case '/about':
+                        routerView.innerHTML = 'About';
+                        return;
+                    default:
+                        return;
+                }
+            }
+        </script>
+    </body>
 </html>

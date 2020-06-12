@@ -119,3 +119,22 @@ function test(arr) {
     })
     console.log('result', result)
 }
+
+/*
+    一行代码实现一个简单的模版字符串替换
+    var template = "{{name}}很厉害，才{{age}}岁"
+    var context = { name: 'april', age: '15'}
+    输入： template context
+    输出：bottle很厉害，才15岁
+    1. 用正则匹配 /\{\{.*?\}\}/g/ 匹配到所有的{{name}}、{{age}}
+    2. str.replace(replace|substr, newSubStr|function),其中第二个参数可以是 fucntion (replacement) ，该函数的返回值将替换掉第一个参数匹配到的结果，将所有匹配到的字符替换成指定的字符
+    3. String.prototype.trim() 去除分割符与变量之间的空白字符
+*/
+function render(template, context) {
+    // * 匹配前面的子表达式零次或多次
+    // . 匹配除换行符 \n 之外的任何单字符
+    // ? 匹配前面一个表达式0次或者1次
+    return template.replace(/{{(.*?)}}/g, (match, key) => {
+        context[key.trim()]
+    })
+}

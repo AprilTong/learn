@@ -4,23 +4,23 @@
    Apache Subversion 缩写为 svn，是一个开发源代码的版本控制系统。
    所用的术语有：
 
-- 仓库
-- 主干
-- 标签
-- 分支
-- 工作副本
-- 提交更改
+-   仓库
+-   主干
+-   标签
+-   分支
+-   工作副本
+-   提交更改
 
 2. svn 生命周期
 
-- 创建版本库（create 操作）
-- 检出 （checkout）
-- 更新 （update）
-- 变更（add commmit rename）
-- 复查变化 （status diff）
-- 修复错误 （revert）
-- 解决冲突 （revert merge resolve）
-- 提交更改 （commit）
+-   创建版本库（create 操作）
+-   检出 （checkout）
+-   更新 （update）
+-   变更（add commmit rename）
+-   复查变化 （status diff）
+-   修复错误 （revert）
+-   解决冲突 （revert merge resolve）
+-   提交更改 （commit）
 
 3. 检出(从版本库创建一个新的工作副本)
 
@@ -148,6 +148,14 @@ svn commit -m init
 ```
 svn propget svn:ignore
 ```
+
+忽略多个文件夹
+
+```
+svn propset svn:ignore ".svnignore
+```
+
+回车之后会出现大于号，把文件名分别写上最后加上双引号空格点斜杠结束
 
 svn 切换仓库
 
