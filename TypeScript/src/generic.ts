@@ -39,3 +39,16 @@ let myGeneriNumber = new GenericNumber<number>()
 myGeneriNumber.zeroValue = 0
 myGeneriNumber.add = function (x, y) { return x + y }
 console.log('myGeneriNumber', myGeneriNumber)
+
+// 泛型约束
+interface Lengthwise {
+    length: number;
+}
+function loggingIdentity2<T extends Lengthwise>(arg: T): T {
+    console.log(arg.length)
+    return arg
+}
+loggingIdentity2({ length: 10, value: 3 })
+
+
+// 在泛型约束中使用类型参数
