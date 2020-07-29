@@ -57,6 +57,19 @@ interface axiosObj {
     delete?: any
     sendForm?: any
 }
+// 处理请求重复提交
+let pending = [] //声明一个数组用于存储每个ajax请求的取消函数和ajax标识
+let cancelToken = axios.CancelToken
+let removeRepeatUrl = ever => {
+    for (let p in pending) {
+        if (pending[p].u === ever.url + '&' + ever.method) {
+            //当前请求在数组中存在时执行函数体
+            pending[p].f() //执行取消操作
+            pending.splice(p, 1) //把这条记录从数组中移除
+        }
+    }
+}
+
 
 // 请求拦截
 axios.interceptors.request.use(
@@ -70,6 +83,11 @@ axios.interceptors.request.use(
                 username,
             }
         }
+        removeRepeatUrl(opts)
+        opts.cancelToken = new cancelToken(c => {
+            // 自定义标识
+            pending.push({ u: opts.url + '&' + opts.method, f: c })
+        })
         return config
     },
     (error) => {
@@ -79,6 +97,7 @@ axios.interceptors.request.use(
 // 响应拦截
 axios.interceptors.response.use(
     (response) => {
+        removeRepeatUrl(response.config)
         if (response.status === 200 || response.status === 304) {
             checCode(response)
             return Promise.resolve(response)
