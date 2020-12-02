@@ -25,4 +25,17 @@ function getValues2<T, K extends keyof T>(obj: T, keys: K[]): T[K][] {
 }
 console.log(getValues2(temp_obj, ['a']));
 console.log(getValues2(temp_obj, ['e'])); // 类型检查发挥作用
-console.log('test');
+// 映射类型,同态
+interface myObj {
+    a: string;
+    b: number;
+    c: boolean;
+}
+// 接口的所有属性变为可读
+type readOnlyObj = Readonly<myObj>;
+// 接口所有的参数是可选的
+type partialObj = Partial<myObj>;
+// 抽取对象子集
+type pickObj = Pick<myObj, 'a' | 'b'>;
+// 非同态类型
+type recordObj = Record<'x' | 'y', myObj>;
