@@ -25,3 +25,4 @@ function getValues2<T, K extends keyof T>(obj: T, keys: K[]): T[K][] {
 }
 console.log(getValues2(temp_obj, ['a']));
 console.log(getValues2(temp_obj, ['e'])); // 类型检查发挥作用
+console.log('test');
