@@ -1,71 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>日出日落</title>
-  </head>
-  <body>
-    <div class="parent">
-      <div class="sun"></div>
-    </div>
-    <style>
-      body {
-        background-color: rgb(32, 25, 25);
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-      }
-      .parent {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-      }
-      /* 
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>日出日落</title>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="sun"></div>
+        </div>
+        <style>
+            body {
+                background-color: rgb(32, 25, 25);
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+            }
+            .parent {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                display: inline-block;
+                overflow: hidden;
+            }
+            /* 
         用于添加阴影效果，可设置的值有，x轴偏移，y轴偏移，阴影模糊半径，阴影颜色，通过多个逗号分隔
         // 阴影向内| x偏移量 | y偏移量| 阴影颜色
         box-shadow: inset 5px 5px gold;
         // x偏移量 | y偏移量 | 阴影模糊半径 | 阴影颜色
         box-shadow: 10px 5px 5px black;
       */
-      .sun {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background: burlywood;
-        position: absolute;
-        bottom: -200px;
-        left: 40px;
-        box-shadow: inset 0 0 50px #ffffff, inset 20px 0 80px #f0f,
-          inset -20px 0 80px #0ff, inset 20px 0 300px #f0f,
-          inset -20px 0 300px #0ff, 0 0 5px #fff, -10px 0 80px #f0f,
-          -10px 0 80px #f0f, 10px 0 80px #0ff;
-        animation: rise 3s linear infinite;
-      }
-      @keyframes rise {
-        0% {
-          bottom: -200px;
-          left: 40px;
-        }
-        25% {
-          bottom: -100px;
-          left: 240px;
-        }
-        50% {
-          bottom: 200px;
-          left: 440px;
-        }
-        75% {
-          bottom: 100px;
-          left: 640px;
-        }
-        100% {
-          bottom: -200px;
-          left: 840px;
-        }
-      }
-    </style>
-  </body>
+            .sun {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background: burlywood;
+                position: absolute;
+                bottom: -200px;
+                left: 40px;
+                box-shadow: inset 0 0 50px #ffffff, inset 20px 0 80px #f0f, inset -20px 0 80px #0ff,
+                    inset 20px 0 300px #f0f, inset -20px 0 300px #0ff, 0 0 5px #fff, -10px 0 80px #f0f,
+                    -10px 0 80px #f0f, 10px 0 80px #0ff;
+                animation: rise 3s linear infinite;
+            }
+            @keyframes rise {
+                0% {
+                    bottom: -200px;
+                    left: 40px;
+                }
+                25% {
+                    bottom: -100px;
+                    left: 240px;
+                }
+                50% {
+                    bottom: 200px;
+                    left: 440px;
+                }
+                75% {
+                    bottom: 100px;
+                    left: 640px;
+                }
+                100% {
+                    bottom: -200px;
+                    left: 840px;
+                }
+            }
+        </style>
+    </body>
 </html>

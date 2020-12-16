@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
-  <style>
-    * {
-      padding: 0px;
-      margin: 0px;
-    }
-    /* 浮动*/
-    /* .box {
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        /* 浮动*/
+        /* .box {
       width: 100%;
       height: 100vh;
     }
@@ -34,8 +34,8 @@
       width: calc(100% - 200px);
       margin: 0 100px;
     } */
-    /* 定位 */
-    /* .one {
+        /* 定位 */
+        /* .one {
       width: 100px;
       height: 100%;
       position: absolute;
@@ -58,42 +58,89 @@
       left: 100px;
       right: 100px;
     } */
-    /* flex 布局 */
-    .box {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-    }
-    .one {
-      background: red;
-      /* width: 100px; */
-      flex-basis: 100px;
-      height: 100%;
-    }
-    .two {
-      background: green;
-      height: 100%;
-      flex: 1;
-      flex-basis: calc(100% - 200px);
-      flex-grow: 1;
-    }
-    .three {
-      background: hotpink;
-      flex-basis: 100px;
-      /* width: 100px; */
-      height: 100%;
-    }
-  </style>
-  <body>
-    <div class="box">
-      <!-- 定位和flex布局-->
-      <div class="one"></div>
+        /* flex 布局 */
+        .box {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+        }
+        .one {
+            background: red;
+            /* width: 100px; */
+            flex-basis: 100px;
+            height: 100%;
+        }
+        .two {
+            background: green;
+            height: 100%;
+            flex: 1;
+            flex-basis: calc(100% - 200px);
+            flex-grow: 1;
+        }
+        .three {
+            background: hotpink;
+            flex-basis: 100px;
+            /* width: 100px; */
+            height: 100%;
+        }
+        .wrapper {
+            width: 500px;
+            border: 1px solid black;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .span {
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: #bac;
+        }
+        .div {
+            width: 50px;
+            height: 50px;
+            background: hotpink;
+        }
+        .span2 {
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            background: #bac;
+        }
+        .div2 {
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            background: hotpink;
+        }
+    </style>
+    <body>
+        <div class="box">
+            <!-- 定位和flex布局-->
+            <!-- <div class="one"></div>
       <div class="two"></div>
+      <div class="three"></div> -->
+            <!-- 浮动布局-->
+            <!-- <div class="one"></div>
       <div class="three"></div>
-      <!-- 浮动布局-->
-      <div class="one"></div>
-      <div class="three"></div>
-      <div class="two"></div>
-    </div>
-  </body>
+      <div class="two"></div> -->
+            <div class="wrapper">
+                <img src="https://i.ibb.co/18zSKmP/image.jpg" /><br />
+                <span>这是span内联元素中的文字</span>
+                <div>这是块元素div中的文字</div>
+            </div>
+
+            <ul>
+                <li class="wrapper">
+                    <span class="span"></span>
+                    <div class="div"></div>
+                    <span class="span2"> 我是行内块元素，是有文字的span </span><br />
+                    <div class="div2">我也是行内块元素，是div</div>
+                    <br />
+                    <span class="span2"></span><br />
+                    <div class="div2"></div>
+                    <br />
+                </li>
+            </ul>
+        </div>
+    </body>
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>中秋快乐</title>
+    </head>
+    <body>
+        <div class="box">
+            <div class="deng-box">
+                <div class="deng">
+                    <div class="xian"></div>
+                    <div class="deng-a">
+                        <div class="deng-b">
+                            <div class="deng-t">中秋</div>
+                        </div>
+                    </div>
+                    <div class="shui shui-a"></div>
+                    <div class="shui shui-b"></div>
+                    <div class="shui shui-c"></div>
+                </div>
+            </div>
+            <div class="deng-box">
+                <div class="deng">
+                    <div class="xian"></div>
+                    <div class="deng-a">
+                        <div class="deng-b">
+                            <div class="deng-t">快乐</div>
+                        </div>
+                    </div>
+                    <div class="shui shui-a"></div>
+                    <div class="shui shui-b"></div>
+                    <div class="shui shui-c"></div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .box {
+                display: flex;
+            }
+            .deng {
+                position: relative;
+                width: 120px;
+                height: 90px;
+                margin: 50px;
+                background: rgba(216, 0, 15, 0.9);
+                border-radius: 50% 50%;
+                transform-origin: 50% -100px;
+                animation: swing-data 3s ease-in-out infinite;
+                box-shadow: -5px 5px 50px 4px #fa6c00;
+                margin-right: 20px;
+            }
+            .deng:before {
+                position: absolute;
+                height: 12px;
+                width: 60px;
+                content: ' ';
+                display: block;
+                background: orange;
+                top: -7px;
+                left: 29px;
+                z-index: 999;
+                border-radius: 5px 5px 0 0;
+                border: 1px solid #dc8f03;
+            }
+            .deng:after {
+                position: absolute;
+                height: 12px;
+                width: 60px;
+                content: ' ';
+                display: block;
+                background: orange;
+                bottom: -7px;
+                left: 10px;
+                margin-left: 20px;
+                border-radius: 0 0 5px 5px;
+                border: 1px solid #dc8f03;
+            }
+            .xian {
+                position: absolute;
+                top: -20px;
+                left: 60px;
+                width: 2px;
+                height: 20px;
+                background: #dc8f03;
+            }
+            .deng-a {
+                width: 100px;
+                margin: 12px 8px 8px 8px;
+                height: 90px;
+                background: rgba(216, 0, 15, 0.2);
+                border-radius: 50% 50%;
+                border: 2px solid #dc8f03;
+            }
+            .deng-b {
+                width: 45px;
+                margin: -4px 8px 8px 26px;
+                height: 90px;
+                background: rgba(216, 0, 15, 0.2);
+                border-radius: 50% 50%;
+                border: 2px solid #dc8f03;
+            }
+            .deng-t {
+                font-size: 17px;
+                color: #dc8f03;
+                font-weight: 700;
+                line-height: 85px;
+                text-align: center;
+            }
+            .shui {
+                width: 5px;
+                height: 40px;
+                background: orange;
+                border-radius: 0 0 5px 5px;
+            }
+            .shui-a {
+                margin: -10px 0 0 40px;
+                transform-origin: 50% -20px;
+                animation: swing-data 4s ease-in-out infinite;
+            }
+            .shui-b {
+                margin: -35px 0 0 59px;
+                transform-origin: 50% -45px;
+                animation: swing-data 4s ease-in-out infinite;
+            }
+            .shui-c {
+                margin: -45px 0 0 77px;
+                animation: swing-data 4s ease-in-out infinite;
+                transform-origin: 50% -25px;
+            }
+            @keyframes swing-data {
+                0% {
+                    transform: rotate(-10deg);
+                }
+                50% {
+                    transform: rotate(10deg);
+                }
+                to {
+                    transform: rotate(-10deg);
+                }
+            }
+        </style>
+    </body>
+</html>

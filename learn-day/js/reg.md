@@ -36,3 +36,16 @@ console.log(reg.test(15328044636)) // false
 
 -   去掉 g，关闭全局匹配
 -   每次匹配之前将 lastIndex 的值设置为 0
+
+4.function test(str) {
+let start = str.slice(0, str.indexOf('.'))
+let end = str.slice(str.indexOf('.'))
+let reg = /(?=(\B)(\d{3})+\$)/g;
+return start.replace(reg, ',') + end
+}
+
+3. 基本概念
+   (1) 通配符 .将匹配任何一个字符
+   例： 如果想匹配"hug"、"huh"、"hut"和"hum", 可以使用/hu./
+   (2). 字符集搜寻具有一定灵活性的文字匹配模式[]
+   (3). 匹配字母或者数字，连字符，匹配小写字母[a-e]、[0-9]
