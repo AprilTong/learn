@@ -145,3 +145,24 @@ class Employee extends Person {
 let april = new Employee('April', '平台部')
 console.log('april', april)
 // let bran = new Person('bran') // 错误， ‘Person’的构造函数是被保护的
+
+// 存取器
+let passcode = 'secret passcode'
+class Employee1 {
+    private _fullName: string;
+    get fullName(): string {
+        return this._fullName
+    }
+    set fullName(newName: string) {
+        if (passcode && passcode === 'secret passcode') {
+            this._fullName = newName
+        } else {
+            console.log("Error: Unauthorized update of employee!");
+        }
+    }
+}
+let employee = new Employee1();
+employee.fullName = "Bob Smith";
+if (employee.fullName) {
+    alert(employee.fullName);
+}

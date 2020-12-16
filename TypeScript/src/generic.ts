@@ -52,3 +52,41 @@ loggingIdentity2({ length: 10, value: 3 })
 
 
 // 在泛型约束中使用类型参数
+// function getProperty(obj: T, key: K) {
+//     return obj[key];
+// }
+
+// let y = { a: 1, b: 2, c: 3, d: 4 };
+
+// getProperty(y, "a"); // okay
+
+// 在泛型中使用类类型
+function create<T>(c: { new(): T; }): T {
+    return new c()
+}
+class BeeKeeper {
+    hasMask: boolean;
+}
+
+class ZooKeeper {
+    nametag: string;
+}
+
+class Animal {
+    numLegs: number;
+}
+
+class Bee extends Animal {
+    keeper: BeeKeeper;
+}
+
+class Lion extends Animal {
+    keeper: ZooKeeper;
+}
+
+function createInstance<A extends Animal>(c: new () => A): A {
+    return new c();
+}
+
+createInstance(Lion).keeper.nametag;  // typechecks!
+createInstance(Bee).keeper.hasMask;   // typechecks!

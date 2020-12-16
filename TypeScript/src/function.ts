@@ -98,3 +98,22 @@ console.log('pickcard', pickedCard)
 // let h = new Handler()
 // let uiElement: UIElement = {}
 // uiElement.addClickListener(h.onClickGood)
+let suits = ["hearts", "spades", "clubs", "diamonds"];
+function pickCard(x: { suit: string; card: number; }[]): number;
+function pickCard(x: number): { suit: string; card: number; };
+function pickCard(x): any {
+  // Check to see if we're working with an object/array
+  // if so, they gave us the deck and we'll pick the card
+  if (typeof x == "object") {
+    let pickedCard = Math.floor(Math.random() * x.length);
+    return pickedCard;
+  }
+  // Otherwise just let them pick the card
+  else if (typeof x == "number") {
+    let pickedSuit = Math.floor(x / 13);
+    return { suit: suits[pickedSuit], card: x % 13 };
+  }
+}
+let myDeck = [{ suit: "diamonds", card: 2 }, { suit: "spades", card: 10 }, { suit: "hearts", card: 4 }];
+// function pickCard(x): any并不是重载列表的一部分，因此这里只有两个重载：一个是接收对象另一个接收数字。 以其它参数调用 pickCard会产生错误
+// console.log('test', pickCard('april'))
