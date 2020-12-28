@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>星星评分</title>
+    </head>
+    <body>
+        <div class="star-box" id="starBox"></div>
+        <script>
+            let starNum = 5;
+            let score = 0;
+            const starBox = document.getElementById('starBox');
+            if (starBox instanceof HTMLDivElement) {
+                // 设置默认的初开始值或者通过css在root中设置变量初始值
+                // starBox.style.setProperty('--starNum', starNum);
+                // starBox.style.setProperty('--activeStar', score);
+                // 鼠标移动事件
+                const handleMouseMove = (el) => {
+                    const { offsetX } = el;
+                    starBox.style.setProperty('--activeStar', getScore(offsetX));
+                };
+                const handleMouseLeave = () => {
+                    starBox.style.setProperty('--activeStar', score);
+                };
+                // 点击需要记录评分
+                const handleClick = (el) => {
+                    const { offsetX } = el;
+                    score = getScore(offsetX);
+                    starBox.style.setProperty('--activeStar', getScore(offsetX));
+                };
+                const getScore = (offsetX) => {
+                    offsetX = offsetX / 26;
+                    // 只保留整数部分
+                    let r = Math.trunc(offsetX);
+                    if (r < 0) {
+                        r = 0;
+                    } else if (offsetX - r < 0.5) {
+                        r += 0.5;
+                    } else {
+                        r += 1;
+                    }
+                    return r;
+                };
+                starBox.addEventListener('mousemove', handleMouseMove);
+                starBox.addEventListener('mouseleave', handleMouseLeave);
+                starBox.addEventListener('click', handleClick);
+            }
+        </script>
+        <style>
+            :root {
+                --starNum: 5;
+                --activeStar: 0;
+            }
+            .star-box,
+            .star-box:before {
+                background-repeat: repeat-x;
+                background-size: 26px 100%;
+            }
+            .star-box {
+                width: calc(var(--starNum) * 26px);
+                height: 26px;
+                position: relative;
+                overflow: hidden;
+                background-image: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.049 2.927c.3-.921 1.603-.921 1.902 0l1.743 5.365a1 1 0 0 0 .951.69h5.641c.969 0 1.372 1.24.588 1.81l-4.564 3.315a1 1 0 0 0-.363 1.118l1.743 5.365c.3.922-.755 1.688-1.539 1.118l-4.563-3.315a1 1 0 0 0-1.176 0L7.85 21.708c-.784.57-1.838-.196-1.54-1.118l1.744-5.365a1 1 0 0 0-.363-1.118l-4.564-3.315c-.784-.57-.38-1.81.588-1.81h5.64a1 1 0 0 0 .952-.69l1.743-5.365z' fill='%23B2B2B2'/%3E%3Cmask id='a' maskUnits='userSpaceOnUse' x='2' y='2' width='22' height='20'%3E%3Cpath d='M12.049 2.927c.3-.921 1.603-.921 1.902 0l1.743 5.365a1 1 0 0 0 .951.69h5.641c.969 0 1.372 1.24.588 1.81l-4.564 3.315a1 1 0 0 0-.363 1.118l1.743 5.365c.3.922-.755 1.688-1.539 1.118l-4.563-3.315a1 1 0 0 0-1.176 0L7.85 21.708c-.784.57-1.838-.196-1.54-1.118l1.744-5.365a1 1 0 0 0-.363-1.118l-4.564-3.315c-.784-.57-.38-1.81.588-1.81h5.64a1 1 0 0 0 .952-.69l1.743-5.365z' fill='%23B2B2B2'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%2324272F' fill-opacity='.32' d='M2 2h11v20H2z'/%3E%3C/g%3E%3C/svg%3E");
+            }
+            .star-box::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: calc(var(--activeStar) * 26px);
+                height: 100%;
+                background-image: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.049 2.927c.3-.921 1.603-.921 1.902 0l1.743 5.365a1 1 0 0 0 .951.69h5.641c.969 0 1.372 1.24.588 1.81l-4.564 3.315a1 1 0 0 0-.363 1.118l1.743 5.365c.3.922-.755 1.688-1.539 1.118l-4.563-3.315a1 1 0 0 0-1.176 0L7.85 21.708c-.784.57-1.838-.196-1.54-1.118l1.744-5.365a1 1 0 0 0-.363-1.118l-4.564-3.315c-.784-.57-.38-1.81.588-1.81h5.64a1 1 0 0 0 .952-.69l1.743-5.365z' fill='%23007BFF'/%3E%3C/svg%3E");
+            }
+        </style>
+    </body>
+</html>
