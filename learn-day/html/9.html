@@ -7,44 +7,55 @@
     </head>
     <body>
         <div class="star-box" id="starBox"></div>
+        <!-- css实现 -->
+        <div>
+            <p>css实现</p>
+            <input type="range" name="star" min="0" max="5" step="0.5" />
+        </div>
         <script>
-            let starNum = 5;
-            let score = 0;
-            const starBox = document.getElementById('starBox');
+            window.onload = function () {
+                console.time('renderTime')
+            }
+            window.onbeforeunload = function () {
+                console.timeEnd('renderTime')
+            }
+            let starNum = 5
+            let score = 0
+            const starBox = document.getElementById('starBox')
             if (starBox instanceof HTMLDivElement) {
                 // 设置默认的初开始值或者通过css在root中设置变量初始值
                 // starBox.style.setProperty('--starNum', starNum);
                 // starBox.style.setProperty('--activeStar', score);
                 // 鼠标移动事件
                 const handleMouseMove = (el) => {
-                    const { offsetX } = el;
-                    starBox.style.setProperty('--activeStar', getScore(offsetX));
-                };
+                    const { offsetX } = el
+                    starBox.style.setProperty('--activeStar', getScore(offsetX))
+                }
                 const handleMouseLeave = () => {
-                    starBox.style.setProperty('--activeStar', score);
-                };
+                    starBox.style.setProperty('--activeStar', score)
+                }
                 // 点击需要记录评分
                 const handleClick = (el) => {
-                    const { offsetX } = el;
-                    score = getScore(offsetX);
-                    starBox.style.setProperty('--activeStar', getScore(offsetX));
-                };
+                    const { offsetX } = el
+                    score = getScore(offsetX)
+                    starBox.style.setProperty('--activeStar', getScore(offsetX))
+                }
                 const getScore = (offsetX) => {
-                    offsetX = offsetX / 26;
+                    offsetX = offsetX / 26
                     // 只保留整数部分
-                    let r = Math.trunc(offsetX);
+                    let r = Math.trunc(offsetX)
                     if (r < 0) {
-                        r = 0;
+                        r = 0
                     } else if (offsetX - r < 0.5) {
-                        r += 0.5;
+                        r += 0.5
                     } else {
-                        r += 1;
+                        r += 1
                     }
-                    return r;
-                };
-                starBox.addEventListener('mousemove', handleMouseMove);
-                starBox.addEventListener('mouseleave', handleMouseLeave);
-                starBox.addEventListener('click', handleClick);
+                    return r
+                }
+                starBox.addEventListener('mousemove', handleMouseMove)
+                starBox.addEventListener('mouseleave', handleMouseLeave)
+                starBox.addEventListener('click', handleClick)
             }
         </script>
         <style>
@@ -72,6 +83,27 @@
                 width: calc(var(--activeStar) * 26px);
                 height: 100%;
                 background-image: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.049 2.927c.3-.921 1.603-.921 1.902 0l1.743 5.365a1 1 0 0 0 .951.69h5.641c.969 0 1.372 1.24.588 1.81l-4.564 3.315a1 1 0 0 0-.363 1.118l1.743 5.365c.3.922-.755 1.688-1.539 1.118l-4.563-3.315a1 1 0 0 0-1.176 0L7.85 21.708c-.784.57-1.838-.196-1.54-1.118l1.744-5.365a1 1 0 0 0-.363-1.118l-4.564-3.315c-.784-.57-.38-1.81.588-1.81h5.64a1 1 0 0 0 .952-.69l1.743-5.365z' fill='%23007BFF'/%3E%3C/svg%3E");
+            }
+            input[type='range'] {
+                -webkit-appearance: none;
+                width: 100px;
+                margin: 0;
+                outline: 0;
+            }
+            /*  ::-webkit-slider-runnable-track,表示其在type为range的input标签内中的滑块凹槽，也就是滑块可滑动的区域 */
+            input[type='range' i]::-webkit-slider-runnable-track {
+                background: coral;
+                height: 20px;
+                -webkit-mask: url("data:image/svg+xml,%3Csvg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 0l1.693 3.67 4.013.476L8.74 6.89l.788 3.964L6 8.88l-3.527 1.974.788-3.964L.294 4.146l4.013-.476L6 0z' fill='%23F67600'/%3E%3C/svg%3E");
+                -webkit-mask-size: 20px;
+                -webkit-mask-repeat: repeat-x;
+            }
+            /* 为type为range的input设置伪类样式 */
+            input[type='range' i]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 0;
+                height: 100%;
+                box-shadow: 999px 0px 0px 999px #e8eaed;
             }
         </style>
     </body>

@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>BFC</title>
-  </head>
-  <body>
-    <p>top</p>
-    <p>bottom</p>
-  </body>
-
-  <style>
-    p {
-      width: 100px;
-      height: 100px;
-      background: yellow;
-      line-height: 100px;
-      margin: 10px;
-      text-align: center;
-    }
-  </style>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>BFC</title>
+    </head>
+    <body>
+        <section id="layout">
+            <style media="screen">
+                #layout {
+                    background: red;
+                }
+                #layout .left {
+                    float: left;
+                    width: 100px;
+                    height: 100px;
+                    background: pink;
+                }
+                #layout .right {
+                    height: 110px;
+                    background: #ccc;
+                }
+            </style>
+            <div class="left"></div>
+            <div class="right"></div>
+        </section>
+    </body>
 </html>

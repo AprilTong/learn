@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="input-box">
+            <input class="input-control input-outline" placeholder="账号" />
+            <label class="input-label">账号</label>
+        </div>
+        <style>
+            .input-control {
+                height: 50px;
+            }
+            /* 使input默认的placehodeer隐藏 */
+            .input-control:placeholder-shown::placeholder {
+                color: transparent;
+            }
+            .input-box {
+                position: relative;
+            }
+            .input-label {
+                position: absolute;
+                left: 16px;
+                top: 14px;
+                pointer-events: none;
+            }
+            /* 输入框聚焦，以及占位符不显示的时候对label重新设置样式 ～是兄弟选择器*/
+            .input-control:not(:placeholder-shown),
+            .input-control:focus ~ .input-label {
+                color: #2486ff;
+                transform: scale(0.75) translate(-2px, -32px);
+            }
+        </style>
+    </body>
+</html>

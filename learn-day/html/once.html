@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>事件触发一次</title>
+    </head>
+    <body>
+        <div id="btn" class="box" contenteditable="true"></div>
+        <script>
+            // let btn = document.getElementById('btn')
+            // function test() {
+            //     alert('点击btn')
+            // }
+            // btn.addEventListener('click', test, { once: true })
+        </script>
+        <style>
+            .box {
+                width: 40px;
+                height: 30px;
+                line-height: 30px;
+                border-bottom: 1px solid #333;
+                text-align: center;
+                cursor: pointer;
+                outline: none;
+            }
+            .box:focus {
+                border-bottom: 1px solid cornflowerblue;
+            }
+        </style>
+    </body>
+</html>
