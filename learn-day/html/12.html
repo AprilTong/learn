@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>user-select学习</title>
+    </head>
+    <body>
+        <p>测试默认属性</p>
+        <p class="un-select">使用none属性值</p>
+        <p class="use-text">使用text属性</p>
+        <p class="use-all">使用all属性,点击会选中</p>
+        <p class="use-contain">使用contain属性</p>
+        <style>
+            .un-select {
+                user-select: none;
+            }
+            .use-text {
+                user-select: text;
+            }
+            .use-all {
+                user-select: all;
+            }
+            .use-contain {
+                user-select: contain;
+            }
+        </style>
+    </body>
+</html>

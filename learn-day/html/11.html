@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>min-height问题</title>
+    </head>
+    <body>
+        <style>
+            .box-outer {
+                display: flex;
+            }
+            .box-inner {
+                width: 100px;
+                min-height: 300px;
+                background: #cccccc;
+                margin-bottom: 30px;
+            }
+            .content {
+                width: 60px;
+                height: 30%;
+                background: red;
+            }
+            .parent {
+                position: relative;
+            }
+            .child {
+                position: absolute;
+            }
+        </style>
+        <div class="box-inner">
+            <div class="content"></div>
+        </div>
+        <div class="box-outer">
+            <div class="box-inner">
+                <div class="content"></div>
+            </div>
+        </div>
+        <div class="box-inner parent">
+            <div class="content child"></div>
+        </div>
+    </body>
+</html>
